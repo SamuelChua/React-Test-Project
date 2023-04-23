@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 function Form() {
-  const [formData, setFormData] = useState({
-    name: '',
+  const { id } = useParams(); // identify by Company ID to fetch certain data that is requested 
+
+  const [formData, setFormData] = useState({ // Form of updating log
+    name: '', 
     email: '',
     message: '',
   });
 
-  useEffect(() => {
+  useEffect(() => { // formData is a dependency array which updates when formData get updated. Only the initial listing
     console.log(formData);
   }, [formData]);
 
@@ -24,10 +27,10 @@ function Form() {
   };
 
   return (
-    <div class="form-container">
-      <h2>Fill out this form</h2>
+    <div className="form-container">
+      <h2 className = "text">Fill out this form</h2>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label className = "text">
           Name:
           <input
             type="text"
@@ -36,7 +39,7 @@ function Form() {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className = "text">
           Email:
           <input
             type="email"
@@ -45,7 +48,7 @@ function Form() {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className = "text">
           Message:
           <textarea
             name="message"
@@ -53,7 +56,7 @@ function Form() {
             onChange={handleChange}
           />
         </label>
-        <button className = "button" type="submit">Submit</button>
+        <button className="button" type="submit">Submit</button>
       </form>
     </div>
   );

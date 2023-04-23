@@ -1,16 +1,13 @@
 import React from 'react';
-import logo from '../logo.svg';
-// import pp from '../Icon_hands.png';
 import { Link } from 'react-router-dom';
+import APIData from '../APIData/APIData';
 
 function Home() {
   return (
-    <div>
-      <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-      </header>
+    <div className='home-container'>
       <h2 className ="text">Welcome to my website!</h2>
       <Link to="/form" className ="link">Go to form page</Link>
+      <Link to="/APIData">API Call</Link>
     </div>
   );
 }
